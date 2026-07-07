@@ -7,6 +7,8 @@ import 'package:iti_project/features/home/widgets/category_item.dart';
 import 'package:iti_project/features/home/widgets/custom_header_row.dart';
 import 'package:iti_project/features/home/widgets/popular_details_item.dart';
 
+import 'category_view.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
@@ -76,7 +78,9 @@ class HomeView extends StatelessWidget {
         children: [
           Image.asset('assets/images/home_image.png'),
           SizedBox(height: 24),
-          CustomHeaderRow(leading: 'Categories', trail: 'See All'),
+          CustomHeaderRow(leading: 'Categories', trail: 'See All',onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: ((context) => CategoryView()),),);
+          },),
           SizedBox(height: 24),
 
           SizedBox(

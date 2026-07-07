@@ -12,8 +12,16 @@ final PopularDetailsModel model ;
       padding:EdgeInsets.symmetric(horizontal:	12,	vertical:	4)	,
       margin:	EdgeInsets.only(right:	12),
       decoration:BoxDecoration(
-          color:	Colors.white,
-          borderRadius:	BorderRadius.circular(20)
+          color: Colors.white,
+          borderRadius:	BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.1),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: const Offset(0, 2),
+            ),
+          ],
       )	,
       child:	Column(
         crossAxisAlignment:	CrossAxisAlignment.stretch,

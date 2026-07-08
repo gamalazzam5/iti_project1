@@ -15,7 +15,7 @@ class OnboardingView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 40),
             Image.asset('assets/images/onboarding_1.png', height: 350),

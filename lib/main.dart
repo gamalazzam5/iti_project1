@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iti_project/features/auth/views/login_view.dart';
+import 'package:iti_project/features/home/views/home_nav_bar.dart';
 import 'package:iti_project/features/home/views/home_view.dart';
 
 import 'features/onboarding/views/onboarding_view.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnboardingView(),
+      home: HomeNavBar(),
     );
   }
 }

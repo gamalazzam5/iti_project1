@@ -25,16 +25,26 @@ class QuantitySelector extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           IconButton(
-            onPressed: onRemove,
-            icon: const Icon(Icons.remove),
+            onPressed: quantity > 1 ? onRemove : null,
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            icon: const Icon(Icons.remove, size: 18),
           ),
-          Text(
-            quantity.toString(),
-            style: const TextStyle(fontSize: 18),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14),
+            child: Text(
+              quantity.toString(),
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ),
           IconButton(
             onPressed: onAdd,
-            icon: const Icon(Icons.add),
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            icon: const Icon(Icons.add, size: 18),
           ),
         ],
       ),

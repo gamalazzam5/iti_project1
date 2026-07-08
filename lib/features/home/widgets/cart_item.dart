@@ -7,9 +7,17 @@ class CartItem extends StatelessWidget {
   const CartItem({
     super.key,
     required this.item,
+    required this.quantity,
+    required this.onAdd,
+    required this.onRemove,
+    required this.onDelete,
   });
 
   final CartModel item;
+  final int quantity;
+  final VoidCallback onAdd;
+  final VoidCallback onRemove;
+  final VoidCallback onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -22,20 +30,16 @@ class CartItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-
           Image.asset(
             item.image,
             width: 70,
             height: 70,
           ),
-
           const SizedBox(width: 16),
-
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 Text(
                   item.title,
                   style: const TextStyle(
@@ -43,42 +47,38 @@ class CartItem extends StatelessWidget {
                     fontSize: 20,
                   ),
                 ),
-
                 const SizedBox(height: 12),
-
                 QuantitySelector(
-                  quantity: item.quantity,
+                  quantity: quantity,
+                  onAdd: onAdd,
+                  onRemove: onRemove,
                 ),
               ],
             ),
           ),
-
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-
               IconButton(
-                onPressed: () {},
+                onPressed: onDelete,
                 icon: const Icon(
                   Icons.delete,
                   color: Colors.red,
                 ),
               ),
-
               Row(
-                children:[ Text(
-                  "\$${item.price}",
-                  style: const TextStyle(
-                    fontSize: 22,
-                    color: Colors.brown,
+                children: [
+                  Text(
+                    '\$${item.price.toStringAsFixed(2)}',
+                    style: const TextStyle(
+                      fontSize: 22,
+                      color: Colors.brown,
+                    ),
                   ),
-                ),
-                  SizedBox(width: 2,),
+                  const SizedBox(width: 2),
                   Text(item.unit),
-
-                ]
+                ],
               ),
-
             ],
           ),
         ],

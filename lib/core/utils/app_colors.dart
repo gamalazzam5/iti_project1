@@ -7,4 +7,6 @@ import 'dart:ui';
   static const Color hintColor = Color(0xFF7F4E1D);
   static const Color fieldFillColor = Color(0xFFF3F3F3);
   static const Color white = Color(0xFFFFFFFF);
-}
+  static const Color brownText = Color(0xFF804F1E);
+
+ }

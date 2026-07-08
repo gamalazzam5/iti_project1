@@ -20,4 +20,9 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
   static const TextStyle k24TextButton = TextStyle(fontSize: 24, color: AppColors.primaryColor);
+  static  TextStyle k18Text =  TextStyle(
+    color: AppColors.brownText,
+    fontSize: 18,
+    fontWeight: FontWeight.w700,
+  );
 }

@@ -7,7 +7,7 @@ import 'package:iti_project/features/home/widgets/category_item.dart';
 import 'package:iti_project/features/home/widgets/custom_header_row.dart';
 import 'package:iti_project/features/home/widgets/popular_details_item.dart';
 
-import 'category_view.dart';
+import 'explore_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -73,45 +73,47 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Image.asset('assets/images/home_image.png'),
-          SizedBox(height: 24),
-          CustomHeaderRow(leading: 'Categories', trail: 'See All',onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: ((context) => CategoryView()),),);
-          },),
-          SizedBox(height: 24),
-
-          SizedBox(
-            height: 180,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: categories.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: .only(right: 11),
-                  child: CategoryItem(categoryModel: categories[index]),
-                );
-              },
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Image.asset('assets/images/home_image.png'),
+            SizedBox(height: 24),
+            CustomHeaderRow(leading: 'Categories', trail: 'See All',onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => ExploreView()),),);
+            },),
+            SizedBox(height: 24),
+        
+            SizedBox(
+              height: 180,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: .only(right: 11),
+                    child: CategoryItem(categoryModel: categories[index]),
+                  );
+                },
+              ),
             ),
-          ),
-
-          CustomHeaderRow(leading: 'Popular deals', trail: 'See all'),
-          SizedBox(height: 32),
-          SizedBox(
-            height: 200,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: popularList.length,
-              itemBuilder: (context, index) {
-                return PopularDetailsItem(
-                  model: popularList[index],
-                );
-              },
+        
+            CustomHeaderRow(leading: 'Popular deals', trail: 'See all'),
+            SizedBox(height: 32),
+            SizedBox(
+              height: 200,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: popularList.length,
+                itemBuilder: (context, index) {
+                  return PopularDetailsItem(
+                    model: popularList[index],
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -3,6 +3,8 @@ import 'package:iti_project/core/utils/app_colors.dart';
 import 'package:iti_project/core/widgets/app_button.dart';
 import 'package:iti_project/core/widgets/app_form_field.dart';
 
+import '../../../core/utils/app_text_styles.dart';
+
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
 
@@ -21,7 +23,7 @@ class SignUpView extends StatelessWidget {
         ),
         title: Text(
           'Sign Up',
-          style: TextStyle(fontSize: 24, color: AppColors.primaryColor),
+          style: AppTextStyles.k24TextButton,
         ),
       ),
       body: Padding(

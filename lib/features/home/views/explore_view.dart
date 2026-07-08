@@ -5,8 +5,8 @@ import 'package:iti_project/features/home/widgets/custom_text_form_field.dart';
 
 import '../models/category_model.dart';
 
-class CategoryView extends StatelessWidget {
-  const CategoryView({super.key});
+class ExploreView extends StatelessWidget {
+  const ExploreView({super.key});
   static const List<CategoryModel> categories = [
     CategoryModel(
       image: 'assets/images/grapes.png',

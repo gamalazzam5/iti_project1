@@ -3,6 +3,7 @@ import 'package:iti_project/core/utils/app_colors.dart';
 import 'package:iti_project/core/widgets/app_button.dart';
 import 'package:iti_project/features/auth/views/sign_up_view.dart';
 import 'package:iti_project/features/home/views/home_view.dart';
+import 'package:iti_project/features/home/views/home_nav_bar.dart';
 
 import '../../../core/widgets/app_form_field.dart';
 
@@ -60,7 +61,7 @@ class LoginView extends StatelessWidget {
               SizedBox(height: 24),
               AppButton(text: 'Sign in',
               onPressed: (){
-                Navigator.push(context,  MaterialPageRoute(builder: (context)=>HomeView()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeNavBar()));
               },),
               SizedBox(height: 16),
               Row(

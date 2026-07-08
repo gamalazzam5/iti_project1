@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:iti_project/core/utils/app_colors.dart';
+import 'package:iti_project/core/widgets/app_button.dart';
 import 'package:iti_project/features/auth/views/sign_up_view.dart';
+import 'package:iti_project/features/home/views/home_view.dart';
+
+import '../../../core/widgets/app_form_field.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -13,67 +18,34 @@ class LoginView extends StatelessWidget {
         elevation: 0,
         scrolledUnderElevation: 0,
         centerTitle: true,
-        leading: Icon(Icons.arrow_back_ios, color: Color(0xFFFF5E00)),
+        leading: Icon(Icons.arrow_back_ios, color: AppColors.primaryColor),
         title: Text(
           'Sign in',
-          style: TextStyle(fontSize: 24, color: const Color(0xFFFF5E00)),
+          style: TextStyle(fontSize: 24, color: AppColors.primaryColor),
         ),
       ),
       body: Padding(
-        padding: const .symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: .stretch,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(height: 20),
               Image.asset('assets/images/sign_up.png', height: 350),
               SizedBox(height: 8),
               Text(
                 'Enter your Email and \npassword to access your account',
-                style: TextStyle(color: const Color(0xFF6D3805), fontSize: 18),
+                style: TextStyle(color: AppColors.secondaryColor, fontSize: 18),
               ),
               SizedBox(height: 30),
-              TextFormField(
-                  decoration: InputDecoration(
-
-                    filled: true,
-                    fillColor: Color(0xFFF3F3F3),
-                    hintText: 'Email',
-                    hintStyle: TextStyle(
-                      fontSize: 16,
-                      color: Color(0xFF7F4E1D),
-                    ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide.none,
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Color(0xFFFF5E00)),
-                  ),
-                ),
-              ),
+              AppFormField(hintText: 'Email',),
               SizedBox(height: 8),
-              TextFormField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  suffixIcon: Icon(Icons.remove_red_eye_outlined,color: const Color(0xFFFF5E00),),
-                  filled: true,
-                  fillColor: Color(0xFFF3F3F3),
-                  hintText: 'Password',
-                  hintStyle: TextStyle(
-                    fontSize: 16,
-                    color: Color(0xFF7F4E1D),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide.none,
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Color(0xFFFF5E00)),
-                  ),
-                ),
+              AppFormField(
+                hintText: 'Password',
+                suffixIcon: Icon(
+                  Icons.remove_red_eye_outlined,
+                  color: AppColors.primaryColor,
+                    ),
               ),
               Align(
                 alignment: .centerRight,
@@ -81,29 +53,22 @@ class LoginView extends StatelessWidget {
                   onPressed: () {},
                   child: Text(
                     'Forgot Password?',
-                    style: TextStyle(color: Color(0xFFFF5E00)),
+                    style: TextStyle(color: AppColors.primaryColor),
                   ),
                 ),
               ),
               SizedBox(height: 24),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFFF5E00),
-                  minimumSize: Size(double.infinity, 50),
-                ),
-                onPressed: () {},
-                child: Text(
-                  'Sign in',
-                  style: TextStyle(color: Colors.white, fontSize: 17),
-                ),
-              ),
+              AppButton(text: 'Sign in',
+              onPressed: (){
+                Navigator.push(context,  MaterialPageRoute(builder: (context)=>HomeView()));
+              },),
               SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "Don't have an account?",
-                    style: TextStyle(color: Color(0xFF7F4E1D), fontSize: 14),
+                    style: TextStyle(color: AppColors.hintColor, fontSize: 14),
                   ),
                   TextButton(
                     onPressed: () {
@@ -112,7 +77,7 @@ class LoginView extends StatelessWidget {
                     child: Text(
                       'Sign Up',
                       style: TextStyle(
-                          color: Color(0xFFFF5E00), fontWeight: FontWeight.bold),
+                          color: AppColors.primaryColor , fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
@@ -124,3 +89,5 @@ class LoginView extends StatelessWidget {
     );
   }
 }
+
+

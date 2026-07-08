@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iti_project/core/widgets/app_button.dart';
+import 'package:iti_project/features/auth/views/sign_up_view.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});
@@ -35,26 +37,21 @@ class OnboardingView extends StatelessWidget {
               textAlign: .center,
             ),
             SizedBox(height: 60),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFFFF5E00),
-                minimumSize: Size(double.infinity, 50),
-              ),
-              onPressed: () {},
-              child: Text(
-                'Sign up',
-                style: TextStyle(color: Colors.white, fontSize: 17),
-              ),
+            AppButton(
+              text: 'Sign Up',
+              onPressed: () => Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => SignUpView())),
             ),
             SizedBox(height: 16),
             OutlinedButton(
               style: OutlinedButton.styleFrom(
-                side: BorderSide(
-                  color: Color(0xFFFF5E00)
-                ),
+                side: BorderSide(color: Color(0xFFFF5E00)),
                 minimumSize: Size(double.infinity, 50),
               ),
-              onPressed: () {},
+              onPressed: () {
+
+              },
               child: Text(
                 'Sign in',
                 style: TextStyle(color: Color(0xFFFF5E00), fontSize: 17),
